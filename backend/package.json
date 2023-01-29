@@ -1,0 +1,33 @@
+{
+  "name": "dvblog",
+  "version": "0.0.1",
+  "description": "REST-API for personal blog",
+  "main": "src/server.ts",
+  "scripts": {
+    "build": "rm -rf build/ && tsc",
+    "start": "node build/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceopp/DevBlog.git"
+  },
+  "author": "dmitriy vaganov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceopp/DevBlog/issues"
+  },
+  "homepage": "https://github.com/ceopp/DevBlog#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "dotenv": "^16.0.3",
+    "epress": "^0.0.1-security",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mongoose": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.16",
+    "typescript": "^4.9.4"
+  }
+}
