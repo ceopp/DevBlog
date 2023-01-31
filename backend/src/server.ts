@@ -3,6 +3,7 @@ import http from "http";
 import mongoose from "mongoose";
 import { config } from "./config/config";
 import typeRoutes from "./routes/Type";
+import productRoutes from "./routes/Product";
 
 const router = express();
 
@@ -46,6 +47,7 @@ const StartServer = () => {
 
     /** Routes */
     router.use('/types', typeRoutes);
+    router.use('/products', productRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'PONG'}));
@@ -53,7 +55,7 @@ const StartServer = () => {
     /** Error handling */
     router.use((req, res, next) => {
         const error = new Error('not Found');
-        console.log(error);
+        console.log(error.message);
 
         return res.status(400).json({ message: error.message });
     });
