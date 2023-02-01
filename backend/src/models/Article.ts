@@ -3,6 +3,7 @@ import mongoose, { Document, Schema} from "mongoose";
 export interface IArticle {
     title: string;
     body: string;
+    date: Date;
 }
 
 export interface IArticleModel extends IArticle, Document {

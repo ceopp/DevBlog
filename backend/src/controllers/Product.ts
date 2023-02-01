@@ -55,9 +55,6 @@ const readAllProduct = (req: Request, res: Response, next: NextFunction) => {
     var page: any = req.query.page;
     var limit: any  = req.query.limit;
 
-    
-    console.log("req params")
-    console.log(req.query)
 
     return Product.find()
     .limit(limit * 1)

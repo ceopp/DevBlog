@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import { config } from "./config/config";
 import typeRoutes from "./routes/Type";
 import productRoutes from "./routes/Product";
+import reviewRoutes from "./routes/Review";
+import questionRoutes from "./routes/Question";
 
 const router = express();
 
@@ -48,6 +50,8 @@ const StartServer = () => {
     /** Routes */
     router.use('/types', typeRoutes);
     router.use('/products', productRoutes);
+    router.use('/reviews', reviewRoutes);
+    router.use('/questions', questionRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'PONG'}));
