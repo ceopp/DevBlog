@@ -17,9 +17,8 @@ const QuestionSchema: Schema = new Schema(
     {
         questionName: { type: "string", required: true },
         questionDate: { type: "Date", required: true },
-        answerDate: { type: "Date", required: true },
         questionText: { type: "string", required: true },
-        answerText: { type: "string", required: true },
+        answerText: { type: "string", required: false },
         product: { type: Schema.Types.ObjectId, required: true, ref: "Product" },
     }, 
     {
