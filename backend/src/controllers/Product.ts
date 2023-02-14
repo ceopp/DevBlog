@@ -72,6 +72,19 @@ const readRandomProducts = (req: Request, res: Response, next: NextFunction) => 
     .catch(error => res.status(500).json(error))
 };
 
+const searchProducts = (req: Request, res: Response, next: NextFunction) => {
+    var page: any = req.query.page;
+    var limit: any  = req.query.limit;
+    var searchQuery: any = req.query.search;
+
+
+    return Product.find({ 'title': searchQuery})
+    .limit(limit * 1)
+    .skip((page - 1) * parseInt(limit))
+    .then((products) => (products ? res.status(200).json( { products }) : res.status(404).json( { message: 'Not Found'})))
+    .catch(error => res.status(500).json(error))
+};
+
 const updateProduct = (req: Request, res: Response, next: NextFunction) => {
     const productId = req.params.productId;
 
@@ -99,4 +112,4 @@ const deleteProduct = (req: Request, res: Response, next: NextFunction) => {
     .catch(error => res.status(500).json(error))
 }
 
-export default { createProduct, deleteProduct, readProduct, readAllProduct, updateProduct, readRandomProducts };
+export default { createProduct, deleteProduct, readProduct, readAllProduct, updateProduct, readRandomProducts, searchProducts };

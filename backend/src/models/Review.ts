@@ -6,7 +6,7 @@ export interface IReview {
     date: Date;
     reviewText: string;
     likes: number;
-    reviewImage: string;
+    reviewImages: string[];
     product: string;
 }
 
@@ -21,7 +21,7 @@ const ReviewSchema: Schema = new Schema(
         date: { type: "Date", required: true },
         reviewText: { type: "string", required: true },
         likes: { type: "number", required: true },
-        reviewImage: { type: "string", required: true },
+        reviewImage: [String],
         product: { type: Schema.Types.ObjectId, required: true, ref: "Product" },
     }, 
     {

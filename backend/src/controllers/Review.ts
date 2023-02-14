@@ -9,7 +9,7 @@ const createReview = (req: Request, res: Response, next: NextFunction) => {
     const { date } = req.body;
     const { reviewText } = req.body;
     const { likes } = req.body;
-    const { reviewImage } = req.body;
+    const { reviewImages } = req.body;
     const { product } = req.body;
 
 
@@ -19,7 +19,7 @@ const createReview = (req: Request, res: Response, next: NextFunction) => {
         rating,
         reviewText,
         date,
-        reviewImage : "https://www.burmunk.am/media/500x500/2020/268/bloom.jpg",
+        reviewImages,
         likes,
         product
     });
