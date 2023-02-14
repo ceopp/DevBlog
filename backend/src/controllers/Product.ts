@@ -78,7 +78,7 @@ const searchProducts = (req: Request, res: Response, next: NextFunction) => {
     var searchQuery: any = req.query.search;
 
 
-    return Product.find({ 'title': searchQuery})
+    return Product.find({ 'title': { $regex: searchQuery, $options: "i" }})
     .limit(limit * 1)
     .skip((page - 1) * parseInt(limit))
     .then((products) => (products ? res.status(200).json( { products }) : res.status(404).json( { message: 'Not Found'})))
