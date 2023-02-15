@@ -46,6 +46,8 @@ const StartServer = () => {
 
     /** Routes */
     router.use('/types', typeRoutes);
+    router.use('/articles', typeRoutes);
+    router.use('/mainPage', typeRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'PONG'}));
